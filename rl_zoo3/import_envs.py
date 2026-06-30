@@ -71,3 +71,14 @@ for env_id in MaskVelocityWrapper.velocity_indices.keys():
         id=f"{name}NoVel-v{version}",
         entry_point=create_no_vel_env(env_id),  # type: ignore[arg-type]
     )
+
+from customEnv import customEnv
+register(
+# unique identifier for the env `name-version`
+id="customEnv-v0",
+# path to the class for creating the env
+# Note: entry_point also accept a class as input (and not only a string)
+entry_point=customEnv,
+# Max number of steps per episode, using a `TimeLimitWrapper`
+max_episode_steps=100,
+)
